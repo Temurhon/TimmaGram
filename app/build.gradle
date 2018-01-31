@@ -32,4 +32,10 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
 
 
+    //bottomNavigationViewEx
+
+    compile 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
+
+
+
 }
