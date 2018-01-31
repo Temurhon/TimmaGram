@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ktemu.timmagram.HomeActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!-- this is the top toolbar -->
+        <RelativeLayout
+            android:id="@+id/rLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/layout_top_tabs" />
+
+        </RelativeLayout>
+
+
+        <!-- you can close it by just putting "/" rather than </include> -->
+
+
+        <!-- this is the middle section (body) -->
+        <!-- the layout will go below the id-->
+        <RelativeLayout
+            android:id="@+id/rLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rLayout1">
+
+
+            <include layout="@layout/layout_center_viewpager" />
+
+
+        </RelativeLayout>
+
+        <!-- this is the bottom navigation-->
+        <include layout="@layout/layout_bottom_navigation_view" />
+
+    </RelativeLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
