@@ -1,14 +1,16 @@
-package com.example.ktemu.timmagram;
+package com.example.ktemu.timmagram.Home;
 
 import android.content.Context;
-import android.nfc.Tag;
-import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TableLayout;
 
+import com.example.ktemu.timmagram.R;
 import com.example.ktemu.timmagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -27,6 +29,30 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: starting");
         //this will call the method setUpBottomNavigation view from the utils package folder, which will take all the functions that i have applied to disable certain things i do not want on my bottom icons.
         setUpBottomNavigationView();
+        setupViewPager();
+    }
+
+        //responsible for adding three tabs: camera, logo and the messages.
+    private void setupViewPager(){
+
+        //to see where all this is coming from just hold ctrl and hover one of those methods.
+        //we're creating new adapter variable inorder for us to connect it.
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new CameraFragment());
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(new MessagesFragment());
+        ViewPager viewPager  = (ViewPager) findViewById(R.id.container);
+        viewPager.setAdapter(adapter);
+
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        //these will load the icons inside the toolbar.
+        
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_logo);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
     }
 
     //Bottom navigation setup
