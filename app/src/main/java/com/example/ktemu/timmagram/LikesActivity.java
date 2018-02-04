@@ -1,9 +1,12 @@
 package com.example.ktemu.timmagram;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.ktemu.timmagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -14,6 +17,8 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class LikesActivity extends AppCompatActivity {
     private static final String TAG = "LikesActivity";
+    private static final int ACTIVITY_NUM = 3;
+    private Context mContext = LikesActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class LikesActivity extends AppCompatActivity {
     }
 
     //Bottom navigation setup
+    //Bottom navigation setup
 
     private void setUpBottomNavigationView(){
         //it'll tell me if my code has made it this far without crashing("the tag will show up if that's the case").
@@ -31,6 +37,11 @@ public class LikesActivity extends AppCompatActivity {
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         //The java class below will be imported from the utils package folder where i have disabled all the extra unnecessary animation and it will be applied for every button on the bottom of the screen.
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+
 
     }
 
